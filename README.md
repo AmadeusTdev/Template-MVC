@@ -1,7 +1,7 @@
 Repository destiné à être une template pour pouvoir être réutilisé plus tard pour d'autres projets
 
 ### Statut du projet & Qualité
-![Last Commit](https://img.shields.io/github/last-commit/QuiEstCe-IUT/BUT-R3.01-SAE?style=flat)
+![Last Commit](https://img.shields.io/github/last-commit/AmadeusTdev/Template-MVC?style=flat)
 
 ### Technologie
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
@@ -9,7 +9,7 @@ Repository destiné à être une template pour pouvoir être réutilisé plus ta
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
-![Repo Size](https://img.shields.io/github/repo-size/QuiEstCe-IUT/BUT-R3.01-SAE?style=flat-square&logo=github&logoColor=white)
+![Repo Size](https://img.shields.io/github/repo-size/AmadeusTdev/Template-MVC?style=flat-square&logo=github&logoColor=white)
 
 ## Architecture
 
