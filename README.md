@@ -18,13 +18,11 @@ Repository destiné à être une template pour pouvoir être réutilisé plus ta
 ├── config
 │   ├── database.example.php # Modèle à copier en config/database.php (non versionné)
 │   └── database.php         # Identifiants réels, IGNORÉ par Git
-├── database
-│   └── dump.sql
 ├── core
-│   ├── includes             # Autoloader et includes PHP internes
-│   ├── utils                # Fonctions utilitaires PHP
+│   ├── autoloader.php       # Autoloader
 │   └── model.php            # Classe Model abstraite : connexion PDO/PostgreSQL partagée
-├── public                  # Unique répertoire exposé sur le Web (document root)
+├── public               # Unique répertoire exposé sur le Web (document root)
+│   ├── .htaccess
 │   ├── assets
 │   ├── favicon.ico
 │   └── index.php            # Routeur central
