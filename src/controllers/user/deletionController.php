@@ -1,5 +1,8 @@
 <?php
-namespace src\controllers;
+namespace src\controllers\user;
+
+use src\views\user\DeletionView;
+use src\models\UserModel;
 
 /**
  * Controller for user deletion.
@@ -16,17 +19,16 @@ class DeletionController {
 
         // Si l'utilisateur n'est pas connecté, on le redirige vers l'accueil
         if (!isset($_SESSION['suid']) || !isset($_SESSION['user_id'])) {
-            header('Location: index.php?page=home');
+            header('Location: /home');
             exit;
         }
 
         if (isset($_POST['delete_account'])) {
             if (isset($_POST['confirm_delete']) && $_POST['confirm_delete'] === 'on') {
-                require_once __DIR__ . '/../models/deletionModel.php';
                 
                 $userId = (int) $_SESSION['user_id'];
                 
-                if (\DeletionModel::deleteUserById($userId)) {
+                if (UserModel::deleteUserById($userId)) {
                     // On vide la session car le compte est supprimé
                     $_SESSION = array();
                     $success = "Votre compte et toutes vos données ont été supprimés avec succès.";
@@ -38,7 +40,6 @@ class DeletionController {
             }
         }
 
-        $path = 'src\\views\\deletionView';
-        (new $path())->show($error, $success);
+        (new DeletionView())->show($error, $success);
     }
 }

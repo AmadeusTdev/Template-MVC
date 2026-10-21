@@ -11,6 +11,9 @@ class HomeView {
      * @return void
      */
     public function show() {
+        $path = 'src\\views\\_layout';
+        $layout = new $path();
+
         $features = array();
         ?>
         <!DOCTYPE html>
@@ -20,12 +23,12 @@ class HomeView {
                 <link rel="stylesheet" href="assets/styles/_default.min.css">
                 <link rel="stylesheet" href="assets/styles/_navigation.min.css">
                 <link rel="stylesheet" href="assets/styles/homeStyle.min.css">
-                <?php start_page(); ?>
+                <?php $layout->start_page(); ?>
             </head>
             <body>
                 <div id="main-container">
                     <header>
-                        <?php navigation(); ?>
+                        <?php $layout->navigation(); ?>
                     </header>
                     <div id="right-container">
                         <main>
@@ -50,7 +53,7 @@ class HomeView {
                         </main>
                                     
                         <footer>
-                            <?php end_page(); ?>
+                            <?php $layout->end_page(); ?>
                         </footer>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 <?php
-namespace src\views;
+namespace src\views\user;
+use src\views\_Layout;
 
 /**
  * View for the login page.
@@ -11,21 +12,23 @@ class LoginView {
      * @return void
      */
     public function show($error) {
+        $path = 'src\\views\\_layout';
+        $layout = new $path();
         ?>
         <!DOCTYPE html>
         <html lang="fr">
             <head>
                 <meta charset="UTF-8">
         
-                <link rel="stylesheet" href="assets/styles/_default.min.css">
-                <link rel="stylesheet" href="assets/styles/_navigation.min.css">
-                <link rel="stylesheet" href="assets/styles/loginStyle.min.css">
-                <?php start_page(); ?>
+                <link rel="stylesheet" href="../assets/styles/_default.min.css">
+                <link rel="stylesheet" href="../assets/styles/_navigation.min.css">
+                <link rel="stylesheet" href="../assets/styles/loginStyle.min.css">
+                <?php $layout->start_page(); ?>
             </head>
             <body>
                 <div id="main-container">
                     <header>
-                        <?php navigation(); ?>
+                        <?php $layout->navigation(); ?>
                     </header>
         
                     <div id="right-container">
@@ -36,7 +39,7 @@ class LoginView {
                                 echo <<<HTML
                                 <div class="cont">
                                     <h1>Se connecter</h1>
-                                    <form method='post' class="form_bg" action="index.php?page=login">
+                                    <form method='post' class="form_bg" action="/user/login">
                                         <p>Email:</p>
                                         <input name='form[email]' class="input" type="text">
                                         <p>Mot de passe:</p>
@@ -44,14 +47,14 @@ class LoginView {
                                         <input type="submit" class="submit">
                                     </form>
                                 HTML;
-        
-                                if (isset($error)) {
+                                ?>
+                                <p class='error'><?php if (isset($error)) {
                                     echo $error;
-                                }
-        
+                                } ?></p>
+                                <?php
                                 echo <<<HTML
-                                    <a href="index.php?page=signUp" class="link">S'inscrire</a><br>
-                                    <a href="index.php?page=forgottenPwd" class="link">Mot de passe oublié</a>
+                                    <a href="/user/signup" class="link">S'inscrire</a><br>
+                                    <a href="/user/forgotten_password" class="link">Mot de passe oublié</a>
                                 </div>
                                 HTML;
                             } else {
@@ -61,13 +64,13 @@ class LoginView {
                                 HTML;
                                 $username = $_SESSION['username'];
                                 echo "<p>$username</p>";
-                                echo '<a href="index.php?page=login&action=logout" class="link">Se déconnecter</a><br><br>';
-                                echo '<a href="index.php?page=deletion" class="link" style="color: red;">Supprimer mon compte</a><br>';
+                                echo '<a href="/user/logout" class="link">Se déconnecter</a><br><br>';
+                                echo '<a href="/user/deletion" class="link" style="color: red;">Supprimer mon compte</a><br>';
                             }
                             ?>
                         </main>
                         <footer>
-                            <?php end_page(); ?>
+                            <?php $layout->end_page(); ?>
                         </footer>
                     </div>
                 </div>
